@@ -10,7 +10,7 @@ const CompCompraPecas = () => {
         <div className={styles.NomePreco}>
           <div className={styles.Nome}>Memoria RAM</div>
           <div className={styles.PrecoQuant}>
-            <div className={styles.Preco}>R$900,00</div>
+            <div className={styles.Preco}>R$90,00</div>
             <div className={styles.Quant}>x2</div>
           </div>
         </div>

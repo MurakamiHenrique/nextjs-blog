@@ -1,18 +1,13 @@
 import styles from "../styles/CompPreco.module.css";
 import CompCompraPecas from "./CompCompraPecas";
+import SelectedPecas from "./CompCompraPecasGPT";
 
 const CompPrecoPecas = () => {
   return (
     <div className={styles.Caixa}>
         <div  className={styles.PedidoCompleto} >Pedido Completo</div>
       <div className={styles.PedidoCompleto}>
-        <CompCompraPecas></CompCompraPecas>
-        <CompCompraPecas></CompCompraPecas>
-        <CompCompraPecas></CompCompraPecas>
-        <CompCompraPecas></CompCompraPecas>
-        <CompCompraPecas></CompCompraPecas>
-        <CompCompraPecas></CompCompraPecas>
-        <CompCompraPecas></CompCompraPecas>
+        <SelectedPecas></SelectedPecas>
       </div>
     </div>
   );

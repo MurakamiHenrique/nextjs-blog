@@ -12,6 +12,9 @@ import { useState } from "react";
 import CompPrecoPecas from "../components/CompPrecoPecas";
 import HeaderPecas from "../components/HeaderPecas";
 import Link from "next/link";
+import SelectedPecas from "../components/CompCompraPecasGPT";
+
+
 
 const Pecas = () => {
   const partsData = [
@@ -33,6 +36,15 @@ const Pecas = () => {
     { name: "Placa Mãe 4", type: "Placa Mãe", price: "$230" },
     { name: "Memória 5", type: "Memória", price: "$130" },
   ];
+
+  const [selectedPecas, setSelectedPecas] = useState([]);
+
+  const handlePecaSelect = (selectedPeca) => {
+    // Update the selected pecas state
+    setSelectedPecas((prevSelectedPecas) => [...prevSelectedPecas, selectedPeca]);
+  };
+
+
   <style jsx>{`
     @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap");
   `}</style>;
@@ -40,8 +52,8 @@ const Pecas = () => {
     <div className={styles.homeContainer}>
       <HeaderPecas></HeaderPecas>
       <div className={styles.Conteudo}>
-        <QuadradosContainer dados={partsData} quadradosPorLinha={5} />
-          <CompPrecoPecas></CompPrecoPecas>
+      <QuadradosContainer dados={partsData} quadradosPorLinha={5} onPecaSelect={handlePecaSelect} />  
+          <SelectedPecas selectedPecas={selectedPecas} />
       </div>
     </div>
   );

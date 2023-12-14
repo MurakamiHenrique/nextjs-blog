@@ -1,10 +1,9 @@
 // components/Quadrado.js
-import { useState } from "react";
-import styles from "../styles/Quadrado.module.css";
-import SelecionaQuantidade from "./SelecionaQuantidade";
-import { Box, Button, Modal, Paper, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import styles from '../styles/Quadrado.module.css';
+import SelecionaQuantidade from './SelecionaQuantidade';
 
-const Quadrado = ({ dados, isSelected }) => {
+const Quadrado = ({ dados, onPecaSelect }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedQty, setSelectedQty] = useState(1);
 
@@ -21,6 +20,17 @@ const Quadrado = ({ dados, isSelected }) => {
   const handleQtyConfirm = (qty) => {
     // Handle the confirmed quantity
     setSelectedQty(qty);
+
+    // Handle the selection of the piece
+    if (typeof onPecaSelect === 'function') {
+      onPecaSelect({
+        name: dados.name,
+        type: dados.type,
+        price: dados.price,
+        quantity: qty,
+      });
+    }
+
     // Close the modal after confirming the quantity
     handleModalClose();
   };
@@ -28,7 +38,7 @@ const Quadrado = ({ dados, isSelected }) => {
   return (
     <div>
       <div
-        className={`${styles.quadrado} ${isSelected ? styles.clicado : ''}`}
+        className={styles.quadrado}
         onClick={handleSquareClick}
       >
         <div className={styles.textContainer}>
@@ -47,11 +57,13 @@ const Quadrado = ({ dados, isSelected }) => {
       </div>
 
       {/* Render the SelecionaQuantidade modal */}
-      <SelecionaQuantidade
-        open={isModalOpen}
-        handleClose={handleModalClose}
-        handleConfirm={handleQtyConfirm}
-      />
+      {isModalOpen && (
+        <SelecionaQuantidade
+          open={isModalOpen}
+          handleClose={handleModalClose}
+          handleConfirm={handleQtyConfirm}
+        />
+      )}
     </div>
   );
 };
