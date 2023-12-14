@@ -1,0 +1,53 @@
+.Caixa {
+  width: 13rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-style: solid;
+  border: 1px;
+  border-radius: 0.5rem;
+  border: 1px solid #7e7b7b;
+  background: #faf6fc;
+}
+.Conteudo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+.Imagem {
+  width: 3rem;
+  height: 3rem;
+  background-color: aqua;
+}
+.NomePreco {
+  display: flex;
+  height: 3rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Nome {
+  font-size: 12px;
+  font-family: Nunito;
+}
+.Preco {
+  font-size: 12px;
+  font-family: Nunito;
+}
+
+.Quant {
+  font-size: 12px;
+  font-family: Nunito;
+  font-weight: bold;
+}
+
+.PrecoQuant {
+  display: flex;
+  flex-direction: row;
+  width: 3rem;
+  gap: 16px;
+}

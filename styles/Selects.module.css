@@ -1,0 +1,13 @@
+.divSelect {
+  color: #4A369A;
+  font-family: Nunito;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.text:hover{
+    color:#4A369A;
+    font-weight: bold;
+}

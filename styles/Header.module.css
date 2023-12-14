@@ -1,0 +1,30 @@
+.Header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  height: 12rem;
+  top: 0;
+  left: 0;
+}
+
+.Logo {
+  color: #a23cd2;
+  font-size: 76px;
+  font-family: Nunito;
+}
+
+.Configure {
+  color: #000;
+  font-size: 40px;
+  font-family: Nunito;
+}
+
+.MainHeader{
+  display:flex;
+  flex-direction: row;
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
+}

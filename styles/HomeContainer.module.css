@@ -1,0 +1,35 @@
+.homeContainer {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.ComponentesLaterais {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 40rem;
+  gap: 40px;
+  margin-top: 8rem;
+}
+.Conteudo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navBar {
+  width: 70%;
+  margin: 0 auto;
+  background-color: transparent; /* Fundo transparente */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  font-size: 20px;
+  font-family: "Nunito";
+  color: #333;
+}

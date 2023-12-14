@@ -1,0 +1,16 @@
+/* components/QuadradosContainer.module.css */
+.quadradosContainer {
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.linha {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.quadradoContainer {
+  margin-right: 10px;
+}
+
+/* Adicione outras propriedades de estilo conforme necessário */
