@@ -4,7 +4,7 @@ const MemoriaSelect = (props) => {
   return (
     <button onClick={props.onSelect} className={styles.divSelect}>
       <div className={styles.text}>
-        {props.isSelected ? <strong>Memoria</strong> : <p>Memoria</p>}
+        {props.isSelected ? <strong>Memória</strong> : <p>Memória</p>}
       </div>
     </button>
   );

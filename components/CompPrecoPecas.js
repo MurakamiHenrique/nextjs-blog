@@ -1,6 +1,6 @@
 import styles from "../styles/CompPreco.module.css";
 import CompCompraPecas from "./CompCompraPecas";
-import SelectedPecas from "./CompCompraPecasGPT";
+import SelectedPecas from "./CompPedidoCompleto";
 
 const CompPrecoPecas = () => {
   return (

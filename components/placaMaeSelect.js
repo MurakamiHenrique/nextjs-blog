@@ -4,7 +4,7 @@ const PlacaMaeSelect = (props) => {
   return (
     <button onClick={props.onSelect} className={styles.divSelect}>
       <div className={styles.text}>
-        {props.isSelected ? <strong>Placa Mae</strong> : <p>Placa Mae</p>}
+        {props.isSelected ? <strong>Placa Mãe</strong> : <p>Placa Mãe</p>}
       </div>
     </button>
   );

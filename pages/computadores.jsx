@@ -16,7 +16,7 @@ import MemoriaSelect from "../components/memoriaSelect";
 import PlacaMaeSelect from "../components/placaMaeSelect";
 import CompSelecionadoPecasMultiplas from "../components/CompSelecionadoPecasMultiplas";
 import QuadradosUnicosContainer from "../components/QuadradosUnicosContainer";
-import SelectedPecas from "../components/CompCompraPecasGPT";
+import SelectedPecas from "../components/CompPedidoCompleto";
 import ConfirmationModal from "../components/ComponenteConfirma";
 import axios from 'axios';
 

@@ -12,7 +12,7 @@ import { useState } from "react";
 import CompPrecoPecas from "../components/CompPrecoPecas";
 import HeaderPecas from "../components/HeaderPecas";
 import Link from "next/link";
-import SelectedPecasFinal from "../components/CompCompraPecasGPTFINAL";
+import SelectedPecasFinal from "../components/CompPedidoCompleto";
 
 
 
