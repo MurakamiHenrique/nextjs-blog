@@ -1,13 +1,19 @@
 /* components/Quadrado.module.css */
+
 .quadrado {
   width: 200px;
   height: 200px;
+  padding-top: 10px;
   border: 1.5px solid transparent;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   border-radius: 8px;
   border-color: #E8B6FF;
 }
+
 
 .textContainer {
   position: absolute;

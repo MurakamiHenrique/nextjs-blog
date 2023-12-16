@@ -1,19 +1,19 @@
 // components/SelectedPecas.js
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import styles from "../styles/CompCompra.module.css";
+import styles from "../styles/final.module.css";
 import RemoverComponente from "../public//Assets/RemoverComponente.svg";
 import Image from 'next/image';
 import PlacaMae from '../public/Assets/ImagemPlacaMae.jpg';
 
-const SelectedPecas = ({ selectedPecas }) => {
+const Final = ({ selectedPecas }) => {
   if (!Array.isArray(selectedPecas) || selectedPecas.length === 0) {
     return <Typography variant="h4"></Typography>;
   }
 
   return (
     <div className={styles.PedidoCompleto}>
-      <Typography variant="h4">Pedido Completo</Typography>
+      <Typography variant="h4">Pedido Finalizado</Typography>
       {selectedPecas.map((selectedPeca, index) => (
      <div className={styles.Caixa} key={index} mt={2} >
       <div className={styles.Conteudo}>
@@ -32,4 +32,4 @@ const SelectedPecas = ({ selectedPecas }) => {
   );
 };
 
-export default SelectedPecas;
+export default Final;

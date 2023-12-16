@@ -10,11 +10,8 @@
 .ComponentesLaterais {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  height: 40rem;
   gap: 40px;
-  margin-top: 8rem;
 }
 .Conteudo {
   display: flex;

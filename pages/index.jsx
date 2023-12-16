@@ -24,6 +24,13 @@ const Inicio = () => {
           </button>
         </Link>
       </div>
+      <div className={styles.botoesDaCompra}>
+        <Link href="./relatorio">
+          <button className={styles.botaoCompra}>
+            <p>Relatorio Mensal</p>
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,77 @@
+.Caixa {
+    width: 25rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-style: solid;
+    border: 1px;
+    border-radius: 0.5rem;
+    border: 1px solid #7e7b7b;
+    background: #faf6fc;
+  }
+  .Conteudo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 24px;
+    margin-right: 72px;
+    gap: 16px;
+  }
+  .Imagem {
+    width: 7rem;
+    height: 7rem;
+  }
+  .NomePreco {
+    display: flex;
+    height: 4rem;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .Nome {
+    font-size: 20px;
+    font-family: Nunito;
+  }
+  .Preco {
+    font-size: 20px;
+    font-family: Nunito;
+  }
+  
+  .Quant {
+    font-size: 20px;
+    font-family: Nunito;
+    font-weight: bold;
+  }
+  
+  .PrecoQuant {
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+    gap: 32px;
+  }
+  
+  .PedidoCompleto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .Concluir{
+      width: 14rem;
+    background-color: #e8b6ff;
+    border-radius: 0.5rem;
+    font-family: Nunito;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  

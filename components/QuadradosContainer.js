@@ -4,7 +4,7 @@ import Quadrado from './Quadrado';
 import styles from '../styles/QuadradosContainer.module.css'; // Importe o arquivo CSS
 
 
-const QuadradosContainer = ({ dados, onPecaSelect }) => {
+const QuadradosContainer = ({ dados, onPecaSelect}) => {
   const [quadradoSelecionado, setQuadradoSelecionado] = useState(null);
   const containerRef = useRef(null);
 

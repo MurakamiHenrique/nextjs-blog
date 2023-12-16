@@ -16,8 +16,25 @@ import MemoriaSelect from "../components/memoriaSelect";
 import PlacaMaeSelect from "../components/placaMaeSelect";
 import CompSelecionadoPecasMultiplas from "../components/CompSelecionadoPecasMultiplas";
 import QuadradosUnicosContainer from "../components/QuadradosUnicosContainer";
+import SelectedPecas from "../components/CompCompraPecasGPT";
+import ConfirmationModal from "../components/ComponenteConfirma";
+import axios from 'axios';
 
 const Home = () => {
+ /*  const [partsData, setPartsData] = useState([]);
+
+  useEffect(() => {
+    // Make a GET request to your API endpoint
+    axios.get('https://your-api.com/parts')
+      .then(response => {
+        // Assuming the API response has a property named 'parts'
+        setPartsData(response.data.parts);
+      })
+      .catch(error => {
+        console.error('Error fetching parts data:', error);
+      });
+  }, []);
+ */
   const partsData = [
     { name: "Memória 1", type: "Memória", price: "$100" },
     { name: "HD 1", type: "HD", price: "$150" },
@@ -37,87 +54,116 @@ const Home = () => {
     { name: "Placa Mãe 4", type: "Placa Mãe", price: "$230" },
     { name: "Memória 5", type: "Memória", price: "$130" },
   ];
-  const [selectedComponent, setSelectedComponent] = useState("placaMae");
+  
+  const [selectedPecas, setSelectedPecas] = useState([]);
+  const [selectedComponent, setSelectedComponent] = useState('placaMae');
+  const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
+
+  const handlePecaSelect = (selectedPeca) => {
+    // Update the selected pecas state
+    setSelectedPecas((prevSelectedPecas) => [...prevSelectedPecas, selectedPeca]);
+
+    // Open the confirmation modal
+    setConfirmationModalOpen(true);
+  };
 
   const handleComponentSelect = (option) => {
     setSelectedComponent(option);
   };
 
+  const handleConfirmModal = () => {
+    // Handle the confirmation action here
+
+    // Close the confirmation modal
+    setConfirmationModalOpen(false);
+
+    // Navigate to the next component
+    switch (selectedComponent) {
+      case 'placaMae':
+        handleComponentSelect('processador');
+        break;
+      case 'processador':
+        handleComponentSelect('memoria');
+        break;
+      case 'memoria':
+        handleComponentSelect('hd');
+        break;
+      case 'hd':
+        // Navigate to the next step or perform any other action
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleCloseModal = () => {
+    // Close the confirmation modal without changing the component
+    setConfirmationModalOpen(false);
+  };
+
   const renderComponentContent = () => {
     switch (selectedComponent) {
-      case "placaMae":
+      case 'placaMae':
         return (
           <div>
-            {" "}
             <div className={styles.homeContainer}>
-              <div>Placa Mae</div>
 
               <div className={styles.Conteudo}>
-                <QuadradosUnicosContainer dados={partsData} quadradosPorLinha={1} />
+                <QuadradosUnicosContainer dados={partsData} quadradosPorLinha={5} onPecaSelect={handlePecaSelect} />
                 <div className={styles.ComponentesLaterais}>
                   <BotaoProxEtapa
-                    onSelect={() => handleComponentSelect("processador")}
-                    isSelected={selectedComponent === "processador"}
+                    onSelect={() => handleComponentSelect('processador')}
+                    isSelected={selectedComponent === 'processador'}
                   ></BotaoProxEtapa>
-                  <CompSelecionado></CompSelecionado>
-                  <CompPreco></CompPreco>
+                  <SelectedPecas selectedPecas={selectedPecas} />
                 </div>
               </div>
             </div>
           </div>
         );
-      case "processador":
+      case 'processador':
         return (
           <div>
-            {" "}
             <div className={styles.homeContainer}>
-              <div>Processador</div>
               <div className={styles.Conteudo}>
-                <QuadradosUnicosContainer dados={partsData} quadradosPorLinha={2} />
+                <QuadradosUnicosContainer dados={partsData} quadradosPorLinha={5} onPecaSelect={handlePecaSelect} />
                 <div className={styles.ComponentesLaterais}>
                   <BotaoProxEtapa
-                    onSelect={() => handleComponentSelect("memoria")}
-                    isSelected={selectedComponent === "memoria"}
+                    onSelect={() => handleComponentSelect('memoria')}
+                    isSelected={selectedComponent === 'memoria'}
                   ></BotaoProxEtapa>
-                  <CompSelecionado></CompSelecionado>
-                  <CompPreco></CompPreco>
+                  <SelectedPecas selectedPecas={selectedPecas} />
                 </div>
               </div>
             </div>
           </div>
         );
-      case "memoria":
+      case 'memoria':
         return (
           <div>
-            {" "}
             <div className={styles.homeContainer}>
-              <div>memoria</div>
               <div className={styles.Conteudo}>
-                <QuadradosContainer dados={partsData} quadradosPorLinha={3} />
+                <QuadradosContainer dados={partsData} quadradosPorLinha={5} onPecaSelect={handlePecaSelect} />
                 <div className={styles.ComponentesLaterais}>
                   <BotaoProxEtapa
-                    onSelect={() => handleComponentSelect("hd")}
-                    isSelected={selectedComponent === "hd"}
+                    onSelect={() => handleComponentSelect('hd')}
+                    isSelected={selectedComponent === 'hd'}
                   ></BotaoProxEtapa>
-                  <CompSelecionadoPecasMultiplas></CompSelecionadoPecasMultiplas>
-                  <CompPreco></CompPreco>
+                  <SelectedPecas selectedPecas={selectedPecas} />
                 </div>
               </div>
             </div>
           </div>
         );
-      case "hd":
+      case 'hd':
         return (
           <div>
-            {" "}
             <div className={styles.homeContainer}>
-              <div>HD</div>
               <div className={styles.Conteudo}>
-                <QuadradosContainer dados={partsData} quadradosPorLinha={4} />
+                <QuadradosContainer dados={partsData} quadradosPorLinha={5} onPecaSelect={handlePecaSelect} />
                 <div className={styles.ComponentesLaterais}>
                   <BotaoProxEtapa></BotaoProxEtapa>
-                  <CompSelecionadoPecasMultiplas></CompSelecionadoPecasMultiplas>
-                  <CompPreco></CompPreco>
+                  <SelectedPecas selectedPecas={selectedPecas} />
                 </div>
               </div>
             </div>
@@ -126,36 +172,29 @@ const Home = () => {
     }
   };
 
-  <style jsx>{`
-    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap");
-  `}</style>;
-
   return (
     <div className={styles.homeContainer}>
       <Header></Header>
       <CompNavbar />
       <div className={styles.navBar}>
         <PlacaMaeSelect
-          onSelect={() => handleComponentSelect("placaMae")}
-          isSelected={selectedComponent === "placaMae"}
+          onSelect={() => handleComponentSelect('placaMae')}
+          isSelected={selectedComponent === 'placaMae'}
         ></PlacaMaeSelect>
 
         <ProcessadorSelect
-          onSelect={() => handleComponentSelect("processador")}
-          isSelected={selectedComponent === "processador"}
+          onSelect={() => handleComponentSelect('processador')}
+          isSelected={selectedComponent === 'processador'}
         ></ProcessadorSelect>
 
-        <MemoriaSelect
-          onSelect={() => handleComponentSelect("memoria")}
-          isSelected={selectedComponent === "memoria"}
-        />
+        <MemoriaSelect onSelect={() => handleComponentSelect('memoria')} isSelected={selectedComponent === 'memoria'} />
 
-        <HdSelect
-          onSelect={() => handleComponentSelect("hd")}
-          isSelected={selectedComponent === "hd"}
-        ></HdSelect>
+        <HdSelect onSelect={() => handleComponentSelect('hd')} isSelected={selectedComponent === 'hd'}></HdSelect>
       </div>
       <div>{renderComponentContent()}</div>
+
+      {/* Render the ConfirmationModal */}
+      <ConfirmationModal open={isConfirmationModalOpen} handleClose={handleCloseModal} handleConfirm={handleConfirmModal} />
     </div>
   );
 };

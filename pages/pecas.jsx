@@ -12,7 +12,7 @@ import { useState } from "react";
 import CompPrecoPecas from "../components/CompPrecoPecas";
 import HeaderPecas from "../components/HeaderPecas";
 import Link from "next/link";
-import SelectedPecas from "../components/CompCompraPecasGPT";
+import SelectedPecasFinal from "../components/CompCompraPecasGPTFINAL";
 
 
 
@@ -53,7 +53,7 @@ const Pecas = () => {
       <HeaderPecas></HeaderPecas>
       <div className={styles.Conteudo}>
       <QuadradosContainer dados={partsData} quadradosPorLinha={5} onPecaSelect={handlePecaSelect} />  
-          <SelectedPecas selectedPecas={selectedPecas} />
+          <SelectedPecasFinal selectedPecas={selectedPecas} />
       </div>
     </div>
   );

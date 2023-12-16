@@ -5,8 +5,9 @@ import styles from "../styles/CompCompra.module.css";
 import RemoverComponente from "../public//Assets/RemoverComponente.svg";
 import Image from 'next/image';
 import PlacaMae from '../public/Assets/ImagemPlacaMae.jpg';
+import Link from 'next/link';
 
-const SelectedPecas = ({ selectedPecas }) => {
+const SelectedPecasFinal = ({ selectedPecas }) => {
   if (!Array.isArray(selectedPecas) || selectedPecas.length === 0) {
     return <Typography variant="h4"></Typography>;
   }
@@ -28,8 +29,9 @@ const SelectedPecas = ({ selectedPecas }) => {
       </div>
     </div>
       ))}
+     
     </div>
   );
 };
 
-export default SelectedPecas;
+export default SelectedPecasFinal;

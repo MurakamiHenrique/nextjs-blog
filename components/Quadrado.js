@@ -1,6 +1,8 @@
 // components/Quadrado.js
 import React, { useState } from 'react';
 import styles from '../styles/Quadrado.module.css';
+import PlacaMae from '../public/Assets/ImagemPlacaMae.jpg';
+import Image from 'next/image';
 import SelecionaQuantidade from './SelecionaQuantidade';
 
 const Quadrado = ({ dados, onPecaSelect }) => {
@@ -41,14 +43,14 @@ const Quadrado = ({ dados, onPecaSelect }) => {
         className={styles.quadrado}
         onClick={handleSquareClick}
       >
+
+        <Image className={styles.Imagem} width={100} height={100} src={PlacaMae}></Image>
         <div className={styles.textContainer}>
           {/* Display selected quantity */}
-          <p className={styles.texto}>Quantidade: {selectedQty}</p>
           {/* Display other data from dados */}
           {Object.keys(dados).map((campo) => (
             <p key={campo} className={styles.texto}>
               <span style={{ fontFamily: 'Nunito', color: 'black' }}>
-                {campo}:
               </span>{' '}
               {dados[campo]}
             </p>
